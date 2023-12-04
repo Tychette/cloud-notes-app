@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-// Remplacez 'YOUR_CONNECTION_STRING' par l'URI de connexion fourni par MongoDB Atlas
+// Connexion à la  base de donnée MongoDB Atlas
 const connectionString = 'mongodb+srv://Client:uZKWfX6J0aejgnst@atlascluster.2bzkbwe.mongodb.net/NoteClient';
 
 mongoose.connect(connectionString, { useNewUrlParser: true, useUnifiedTopology: true });
