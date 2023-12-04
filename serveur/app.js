@@ -12,7 +12,7 @@ function addNote() {
     return;
   }
 
-  // Envoyer une requête POST à l'API Node.js pour ajouter la note
+  // Remplacez l'URL par celle de votre API Node.js
   fetch('http://localhost:3000/api/notes', {
     method: 'POST',
     headers: {
@@ -27,6 +27,9 @@ function addNote() {
       
       // Actualiser la liste des notes après l'ajout d'une nouvelle note
       getNotes();
+
+      // Vider les champs de saisie
+      clearInputFields();
     })
     .catch(error => {
       // Gérer les erreurs lors de l'ajout de la note
@@ -34,9 +37,15 @@ function addNote() {
     });
 }
 
+// Fonction pour vider les champs de saisie
+function clearInputFields() {
+  document.getElementById('title').value = '';
+  document.getElementById('content').value = '';
+}
+
 // Fonction pour récupérer la liste des notes depuis l'API Node.js
 function getNotes() {
-  // Envoyer une requête GET à l'API Node.js pour récupérer les notes
+  // Remplacez l'URL par celle de votre API Node.js
   fetch('http://localhost:3000/api/notes')
     .then(response => {
       if (!response.ok) {
@@ -72,4 +81,3 @@ function displayNotes(notes) {
 
 // Appeler la fonction getNotes lorsque la page se charge
 window.onload = getNotes;
-
