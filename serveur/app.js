@@ -12,7 +12,7 @@ function addNote() {
     return;
   }
 
-  // Remplacez l'URL par celle de votre API Node.js
+  // Envoyer une requête POST à l'API Node.js pour ajouter la note
   fetch('http://localhost:3000/api/notes', {
     method: 'POST',
     headers: {
