@@ -1,5 +1,3 @@
-// Définir le modèle de données pour les notes.
-
 const mongoose = require('mongoose');
 
 const noteSchema = new mongoose.Schema({

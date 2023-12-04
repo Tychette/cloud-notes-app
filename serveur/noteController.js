@@ -1,5 +1,3 @@
-// Contient la logique métier pour les notes.
-
 const Note = require('./noteModel');
 
 exports.createNote = async (req, res) => {
