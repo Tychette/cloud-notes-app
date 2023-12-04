@@ -1,12 +1,18 @@
+// App de connexion entre l'interface utilisateur et l'application Node.js
+
+// Fonction pour ajouter une nouvelle note
 function addNote() {
+  // Récupérer les valeurs du titre et du contenu depuis le formulaire
   const title = document.getElementById('title').value;
   const content = document.getElementById('content').value;
 
+  // Vérifier si le titre et le contenu sont fournis
   if (!title || !content) {
     alert('Le titre et le contenu de la note sont requis.');
     return;
   }
 
+  // Envoyer une requête POST à l'API Node.js pour ajouter la note
   fetch('http://localhost:3000/api/notes', {
     method: 'POST',
     headers: {
@@ -16,15 +22,21 @@ function addNote() {
   })
     .then(response => response.json())
     .then(data => {
+      // Afficher un message de succès dans la console
       console.log('Note ajoutée avec succès:', data);
-      getNotes();  // Appel à la fonction getNotes après l'ajout d'une note
+      
+      // Actualiser la liste des notes après l'ajout d'une nouvelle note
+      getNotes();
     })
     .catch(error => {
+      // Gérer les erreurs lors de l'ajout de la note
       console.error('Erreur lors de l\'ajout de la note:', error);
     });
 }
 
+// Fonction pour récupérer la liste des notes depuis l'API Node.js
 function getNotes() {
+  // Envoyer une requête GET à l'API Node.js pour récupérer les notes
   fetch('http://localhost:3000/api/notes')
     .then(response => {
       if (!response.ok) {
@@ -33,18 +45,24 @@ function getNotes() {
       return response.json();
     })
     .then(notes => {
+      // Afficher les notes dans l'interface utilisateur
       displayNotes(notes);
     })
     .catch(error => {
+      // Gérer les erreurs lors de la récupération des notes
       console.error('Erreur lors de la récupération des notes:', error);
     });
 }
 
+// Fonction pour afficher les notes dans l'interface utilisateur
 function displayNotes(notes) {
+  // Sélectionner l'élément HTML où afficher la liste des notes
   const noteList = document.getElementById('noteList');
 
+  // Effacer le contenu précédent de la liste
   noteList.innerHTML = '';
 
+  // Parcourir chaque note et créer un élément de liste pour l'affichage
   notes.forEach(note => {
     const listItem = document.createElement('li');
     listItem.innerHTML = `<strong>${note.title}</strong>: ${note.content}`;
@@ -52,4 +70,6 @@ function displayNotes(notes) {
   });
 }
 
-window.onload = getNotes;  // Appel à la fonction getNotes lorsque la page se charge
+// Appeler la fonction getNotes lorsque la page se charge
+window.onload = getNotes;
+

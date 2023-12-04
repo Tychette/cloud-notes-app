@@ -1,9 +1,12 @@
+<!-- Interface utilisateur -->
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Notes App</title>
+  <!-- Styles CSS pour la mise en forme de l'interface utilisateur -->
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -28,20 +31,26 @@
   </style>
 </head>
 <body>
+  <!-- Formulaire pour ajouter une nouvelle note -->
   <h2>Ajouter une note</h2>
   <form id="noteForm">
     <label for="title">Titre:</label>
+    <!-- Champ de saisie pour le titre de la note -->
     <input type="text" id="title" name="title" required>
 
     <label for="content">Contenu:</label>
+    <!-- Champ de saisie pour le contenu de la note -->
     <textarea id="content" name="content" rows="4" required></textarea>
 
+    <!-- Bouton pour ajouter la note en appelant la fonction addNote() -->
     <button type="button" onclick="addNote()">Ajouter la note</button>
   </form>
 
+  <!-- Liste des notes affichées sous forme de liste non ordonnée -->
   <h2>Liste des notes</h2>
   <ul id="noteList"></ul>
 
+  <!-- Inclusion du fichier JavaScript qui gère la logique de l'application -->
   <script src="app.js"></script>
 </body>
 </html>
