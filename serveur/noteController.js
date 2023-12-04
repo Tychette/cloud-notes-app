@@ -17,3 +17,13 @@ exports.createNote = async (req, res) => {
     res.status(500).send('Erreur lors de la création de la note');
   }
 };
+
+exports.getNotes = async (req, res) => {
+  try {
+    const notes = await Note.find();
+    res.status(200).json(notes);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Erreur lors de la récupération des notes');
+  }
+};
