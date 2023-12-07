@@ -7,13 +7,13 @@ const path = require('path');
 // Importer les routes pour la gestion des notes
 const noteRoutes = require('./noteRoutes');
 
-// Importer la configuration de la base de données (assurez-vous qu'elle est définie dans le fichier "database.js")
+// Importer la configuration de la base de données
 const databaseConfig = require('./database');
 
 // Créer une instance d'Express
 const app = express();
 
-// Définir le port sur lequel le serveur écoutera (utilisez le port défini dans les variables d'environnement ou le port 3000 par défaut)
+// Définir le port sur lequel le serveur écoutera
 const PORT = process.env.PORT || 3000;
 
 // Middleware

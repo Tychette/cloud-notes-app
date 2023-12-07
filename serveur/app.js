@@ -45,7 +45,7 @@ function clearInputFields() {
 
 // Fonction pour récupérer la liste des notes depuis l'API Node.js
 function getNotes() {
-  // Remplacez l'URL par celle de votre API Node.js
+  //Envoyer une requête GET à l'API Node.js pour recuperer les notes deja rentrée
   fetch('http://localhost:3000/api/notes')
     .then(response => {
       if (!response.ok) {
